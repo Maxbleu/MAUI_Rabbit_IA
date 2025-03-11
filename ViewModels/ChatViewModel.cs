@@ -32,7 +32,7 @@ namespace MauiApp_rabbit_mq_cliente_1.ViewModels
                 if (_nombreChat != value)
                 {
                     _nombreChat = value;
-                    OnPropertyChanged();
+                    OnPropertyChanged("NombreChat");
                 }
             }
         }
@@ -77,11 +77,11 @@ namespace MauiApp_rabbit_mq_cliente_1.ViewModels
             this._settingsModeloViewModel.LoadModelsAsync();
 
             this._settingsRabbitMQViewModel = IPlatformApplication.Current.Services.GetService<SettingsRabbitMQViewModel>();
-            this.NombreChat = ThingsUtils.CapitalizeFirstLetter(this._settingsRabbitMQViewModel.ExchangeName);
             this._settingsRabbitMQViewModel.PropertyChanged += SettingsRabbitMQViewModel_PropertyChanged;
             this._settingsRabbitMQViewModel.SetupRabbitMQAsync();
-        }
 
+            this.NombreChat = this._settingsRabbitMQViewModel.ExchangeName;
+        }
 
 
         //  EVENTOS SUBCRIPTOS
@@ -117,29 +117,30 @@ namespace MauiApp_rabbit_mq_cliente_1.ViewModels
         /// <param name="e"></param>
         private async void SettingsRabbitMQViewModel_PropertyChanged(object? sender, PropertyChangedEventArgs e)
         {
-            if(e.PropertyName == "ExhangeName")
+            if (e.PropertyName == "ExhangeName")
             {
                 this.NombreChat = this._settingsRabbitMQViewModel.ExchangeName;
             }
 
-            if(e.PropertyName == "Consumer")
+            if (e.PropertyName == "Consumer")
             {
                 this._settingsRabbitMQViewModel.Consumer.Received += OnReceived;
             }
 
-            if(e.PropertyName == "HasBeenActivatedSaveConfigurationButton" && this._settingsRabbitMQViewModel.HasBeenActivatedSaveConfigurationButton)
+            if (e.PropertyName == "HasBeenActivatedSaveConfigurationButton" && this._settingsRabbitMQViewModel.HasBeenActivatedSaveConfigurationButton)
             {
                 if (!this.IsActiveConversation)
                 {
                     this.Messages.Clear();
                     await this._settingsRabbitMQViewModel.SetupRabbitMQAsync();
-                    this._settingsRabbitMQViewModel.HasBeenActivatedSaveConfigurationButton = false;
                 }
                 else
                 {
                     ThingsUtils.SendSnakbarMessage("Desabilita la opción de continuar la conversión del modelo en la pantalla del chat arriba a la derecha");
                     this._settingsRabbitMQViewModel.LoadOldConfiguration();
                 }
+
+                this._settingsRabbitMQViewModel.HasBeenActivatedSaveConfigurationButton = false;
             }
         }
         /// <summary>
@@ -190,6 +191,15 @@ namespace MauiApp_rabbit_mq_cliente_1.ViewModels
         {
             this.IsActiveConversation = !this.IsActiveConversation;
             ThingsUtils.SendSnakbarMessage(this.IsActiveConversation ? "Habilitada que la ia usuario pueda responder a los mensajes" : "Deshabilitado que la ia usuario pueda responder a los mensajes" );
+        }
+        /// <summary>
+        /// Este método se encarga de enviar el mensaje
+        /// de respuesta del modelo al exchange
+        /// </summary>
+        private void SendMessage()
+        {
+            this._settingsRabbitMQViewModel.PostMessageInExchange(this.NewMessageText);
+            ShowMessage();
         }
         /// <summary>
         /// Este método se encarga de mostrar los
@@ -261,15 +271,6 @@ namespace MauiApp_rabbit_mq_cliente_1.ViewModels
                 }
                 return aiMessage;
             }
-        }
-        /// <summary>
-        /// Este método se encarga de enviar el mensaje
-        /// de respuesta del modelo al exchange
-        /// </summary>
-        private void SendMessage()
-        {
-            this._settingsRabbitMQViewModel.PostMessageInExchange(this.NewMessageText);
-            ShowMessage();
         }
 
 

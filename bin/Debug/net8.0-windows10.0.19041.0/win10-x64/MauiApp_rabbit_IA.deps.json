@@ -1,0 +1,772 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0/win10-x64",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {},
+    ".NETCoreApp,Version=v8.0/win10-x64": {
+      "MauiApp_rabbit_IA/1.0": {
+        "dependencies": {
+          "CommunityToolkit.Maui": "9.1.1",
+          "Microsoft.Extensions.Logging.Debug": "8.0.0",
+          "Microsoft.Maui.Controls": "8.0.83",
+          "Microsoft.Maui.Controls.Compatibility": "8.0.83",
+          "Newtonsoft.Json": "13.0.3",
+          "RabbitMQ.Client": "6.8.1",
+          "Microsoft.Maui.Controls.HotReload.Forms": "17.0.0.0",
+          "Microsoft.VisualStudio.DesignTools.MobileTapContracts": "17.0.0.0",
+          "Microsoft.VisualStudio.DesignTools.TapContract": "17.0.0.0",
+          "runtimepack.Microsoft.Windows.SDK.NET.Ref": "10.0.19041.54"
+        },
+        "runtime": {
+          "MauiApp_rabbit_IA.dll": {}
+        }
+      },
+      "runtimepack.Microsoft.Windows.SDK.NET.Ref/10.0.19041.54": {
+        "runtime": {
+          "Microsoft.Windows.SDK.NET.dll": {
+            "assemblyVersion": "10.0.19041.38",
+            "fileVersion": "10.0.19041.52"
+          },
+          "WinRT.Runtime.dll": {
+            "assemblyVersion": "2.1.0.0",
+            "fileVersion": "2.1.6.47881"
+          }
+        }
+      },
+      "CommunityToolkit.Maui/9.1.1": {
+        "dependencies": {
+          "CommunityToolkit.Maui.Core": "9.1.1",
+          "Microsoft.Maui.Controls": "8.0.83"
+        },
+        "runtime": {
+          "lib/net8.0-windows10.0.19041/CommunityToolkit.Maui.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "CommunityToolkit.Maui.Core/9.1.1": {
+        "dependencies": {
+          "Microsoft.Maui.Core": "8.0.83",
+          "Microsoft.Maui.Essentials": "8.0.83",
+          "System.Speech": "8.0.0"
+        },
+        "runtime": {
+          "lib/net8.0-windows10.0.19041/CommunityToolkit.Maui.Core.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "Microsoft.Extensions.Configuration/8.0.0": {
+        "dependencies": {
+          "Microsoft.Extensions.Configuration.Abstractions": "8.0.0",
+          "Microsoft.Extensions.Primitives": "8.0.0"
+        },
+        "runtime": {
+          "lib/net8.0/Microsoft.Extensions.Configuration.dll": {
+            "assemblyVersion": "8.0.0.0",
+            "fileVersion": "8.0.23.53103"
+          }
+        }
+      },
+      "Microsoft.Extensions.Configuration.Abstractions/8.0.0": {
+        "dependencies": {
+          "Microsoft.Extensions.Primitives": "8.0.0"
+        },
+        "runtime": {
+          "lib/net8.0/Microsoft.Extensions.Configuration.Abstractions.dll": {
+            "assemblyVersion": "8.0.0.0",
+            "fileVersion": "8.0.23.53103"
+          }
+        }
+      },
+      "Microsoft.Extensions.DependencyInjection/8.0.1": {
+        "dependencies": {
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "8.0.2"
+        },
+        "runtime": {
+          "lib/net8.0/Microsoft.Extensions.DependencyInjection.dll": {
+            "assemblyVersion": "8.0.0.0",
+            "fileVersion": "8.0.1024.46610"
+          }
+        }
+      },
+      "Microsoft.Extensions.DependencyInjection.Abstractions/8.0.2": {
+        "runtime": {
+          "lib/net8.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {
+            "assemblyVersion": "8.0.0.0",
+            "fileVersion": "8.0.1024.46610"
+          }
+        }
+      },
+      "Microsoft.Extensions.Logging/8.0.1": {
+        "dependencies": {
+          "Microsoft.Extensions.DependencyInjection": "8.0.1",
+          "Microsoft.Extensions.Logging.Abstractions": "8.0.2",
+          "Microsoft.Extensions.Options": "8.0.2"
+        },
+        "runtime": {
+          "lib/net8.0/Microsoft.Extensions.Logging.dll": {
+            "assemblyVersion": "8.0.0.0",
+            "fileVersion": "8.0.1024.46610"
+          }
+        }
+      },
+      "Microsoft.Extensions.Logging.Abstractions/8.0.2": {
+        "dependencies": {
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "8.0.2"
+        },
+        "runtime": {
+          "lib/net8.0/Microsoft.Extensions.Logging.Abstractions.dll": {
+            "assemblyVersion": "8.0.0.0",
+            "fileVersion": "8.0.1024.46610"
+          }
+        }
+      },
+      "Microsoft.Extensions.Logging.Debug/8.0.0": {
+        "dependencies": {
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "8.0.2",
+          "Microsoft.Extensions.Logging": "8.0.1",
+          "Microsoft.Extensions.Logging.Abstractions": "8.0.2"
+        },
+        "runtime": {
+          "lib/net8.0/Microsoft.Extensions.Logging.Debug.dll": {
+            "assemblyVersion": "8.0.0.0",
+            "fileVersion": "8.0.23.53103"
+          }
+        }
+      },
+      "Microsoft.Extensions.Options/8.0.2": {
+        "dependencies": {
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "8.0.2",
+          "Microsoft.Extensions.Primitives": "8.0.0"
+        },
+        "runtime": {
+          "lib/net8.0/Microsoft.Extensions.Options.dll": {
+            "assemblyVersion": "8.0.0.0",
+            "fileVersion": "8.0.224.6711"
+          }
+        }
+      },
+      "Microsoft.Extensions.Primitives/8.0.0": {
+        "runtime": {
+          "lib/net8.0/Microsoft.Extensions.Primitives.dll": {
+            "assemblyVersion": "8.0.0.0",
+            "fileVersion": "8.0.23.53103"
+          }
+        }
+      },
+      "Microsoft.Graphics.Win2D/1.2.0": {
+        "dependencies": {
+          "Microsoft.WindowsAppSDK": "1.5.240627000"
+        },
+        "runtime": {
+          "lib/net6.0-windows10.0.19041.0/Microsoft.Graphics.Canvas.Interop.dll": {
+            "assemblyVersion": "1.2.0.0",
+            "fileVersion": "1.2.0.0"
+          }
+        },
+        "native": {
+          "runtimes/win-x64/native/Microsoft.Graphics.Canvas.dll": {
+            "fileVersion": "1.2.0.0"
+          }
+        }
+      },
+      "Microsoft.IO.RecyclableMemoryStream/3.0.1": {
+        "runtime": {
+          "lib/net6.0/Microsoft.IO.RecyclableMemoryStream.dll": {
+            "assemblyVersion": "3.0.1.0",
+            "fileVersion": "3.0.1.0"
+          }
+        }
+      },
+      "Microsoft.Maui.Controls/8.0.83": {
+        "dependencies": {
+          "Microsoft.Maui.Controls.Build.Tasks": "8.0.83",
+          "Microsoft.Maui.Controls.Core": "8.0.83",
+          "Microsoft.Maui.Controls.Xaml": "8.0.83",
+          "Microsoft.Maui.Resizetizer": "8.0.83"
+        }
+      },
+      "Microsoft.Maui.Controls.Build.Tasks/8.0.83": {
+        "dependencies": {
+          "Microsoft.Maui.Controls.Core": "8.0.83",
+          "Microsoft.Maui.Controls.Xaml": "8.0.83"
+        }
+      },
+      "Microsoft.Maui.Controls.Compatibility/8.0.83": {
+        "dependencies": {
+          "Microsoft.Extensions.Configuration": "8.0.0",
+          "Microsoft.Extensions.Logging.Abstractions": "8.0.2",
+          "Microsoft.Maui.Controls.Core": "8.0.83",
+          "Microsoft.Maui.Controls.Xaml": "8.0.83"
+        },
+        "runtime": {
+          "lib/net8.0-windows10.0.19041/Microsoft.Maui.Controls.Compatibility.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "8.0.8324.52914"
+          }
+        }
+      },
+      "Microsoft.Maui.Controls.Core/8.0.83": {
+        "dependencies": {
+          "Microsoft.Extensions.Configuration": "8.0.0",
+          "Microsoft.Extensions.DependencyInjection": "8.0.1",
+          "Microsoft.Extensions.Logging": "8.0.1",
+          "Microsoft.Extensions.Logging.Abstractions": "8.0.2",
+          "Microsoft.Maui.Core": "8.0.83"
+        },
+        "runtime": {
+          "lib/net8.0-windows10.0.19041/Microsoft.Maui.Controls.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "8.0.8324.52914"
+          }
+        },
+        "resources": {
+          "lib/net8.0-windows10.0.19041/ar/Microsoft.Maui.Controls.resources.dll": {
+            "locale": "ar"
+          },
+          "lib/net8.0-windows10.0.19041/ca/Microsoft.Maui.Controls.resources.dll": {
+            "locale": "ca"
+          },
+          "lib/net8.0-windows10.0.19041/cs/Microsoft.Maui.Controls.resources.dll": {
+            "locale": "cs"
+          },
+          "lib/net8.0-windows10.0.19041/da/Microsoft.Maui.Controls.resources.dll": {
+            "locale": "da"
+          },
+          "lib/net8.0-windows10.0.19041/de/Microsoft.Maui.Controls.resources.dll": {
+            "locale": "de"
+          },
+          "lib/net8.0-windows10.0.19041/el/Microsoft.Maui.Controls.resources.dll": {
+            "locale": "el"
+          },
+          "lib/net8.0-windows10.0.19041/es/Microsoft.Maui.Controls.resources.dll": {
+            "locale": "es"
+          },
+          "lib/net8.0-windows10.0.19041/fi/Microsoft.Maui.Controls.resources.dll": {
+            "locale": "fi"
+          },
+          "lib/net8.0-windows10.0.19041/fr/Microsoft.Maui.Controls.resources.dll": {
+            "locale": "fr"
+          },
+          "lib/net8.0-windows10.0.19041/he/Microsoft.Maui.Controls.resources.dll": {
+            "locale": "he"
+          },
+          "lib/net8.0-windows10.0.19041/hi/Microsoft.Maui.Controls.resources.dll": {
+            "locale": "hi"
+          },
+          "lib/net8.0-windows10.0.19041/hr/Microsoft.Maui.Controls.resources.dll": {
+            "locale": "hr"
+          },
+          "lib/net8.0-windows10.0.19041/hu/Microsoft.Maui.Controls.resources.dll": {
+            "locale": "hu"
+          },
+          "lib/net8.0-windows10.0.19041/id/Microsoft.Maui.Controls.resources.dll": {
+            "locale": "id"
+          },
+          "lib/net8.0-windows10.0.19041/it/Microsoft.Maui.Controls.resources.dll": {
+            "locale": "it"
+          },
+          "lib/net8.0-windows10.0.19041/ja/Microsoft.Maui.Controls.resources.dll": {
+            "locale": "ja"
+          },
+          "lib/net8.0-windows10.0.19041/ko/Microsoft.Maui.Controls.resources.dll": {
+            "locale": "ko"
+          },
+          "lib/net8.0-windows10.0.19041/ms/Microsoft.Maui.Controls.resources.dll": {
+            "locale": "ms"
+          },
+          "lib/net8.0-windows10.0.19041/nb/Microsoft.Maui.Controls.resources.dll": {
+            "locale": "nb"
+          },
+          "lib/net8.0-windows10.0.19041/nl/Microsoft.Maui.Controls.resources.dll": {
+            "locale": "nl"
+          },
+          "lib/net8.0-windows10.0.19041/pl/Microsoft.Maui.Controls.resources.dll": {
+            "locale": "pl"
+          },
+          "lib/net8.0-windows10.0.19041/pt-BR/Microsoft.Maui.Controls.resources.dll": {
+            "locale": "pt-BR"
+          },
+          "lib/net8.0-windows10.0.19041/pt/Microsoft.Maui.Controls.resources.dll": {
+            "locale": "pt"
+          },
+          "lib/net8.0-windows10.0.19041/ro/Microsoft.Maui.Controls.resources.dll": {
+            "locale": "ro"
+          },
+          "lib/net8.0-windows10.0.19041/ru/Microsoft.Maui.Controls.resources.dll": {
+            "locale": "ru"
+          },
+          "lib/net8.0-windows10.0.19041/sk/Microsoft.Maui.Controls.resources.dll": {
+            "locale": "sk"
+          },
+          "lib/net8.0-windows10.0.19041/sv/Microsoft.Maui.Controls.resources.dll": {
+            "locale": "sv"
+          },
+          "lib/net8.0-windows10.0.19041/th/Microsoft.Maui.Controls.resources.dll": {
+            "locale": "th"
+          },
+          "lib/net8.0-windows10.0.19041/tr/Microsoft.Maui.Controls.resources.dll": {
+            "locale": "tr"
+          },
+          "lib/net8.0-windows10.0.19041/uk/Microsoft.Maui.Controls.resources.dll": {
+            "locale": "uk"
+          },
+          "lib/net8.0-windows10.0.19041/vi/Microsoft.Maui.Controls.resources.dll": {
+            "locale": "vi"
+          },
+          "lib/net8.0-windows10.0.19041/zh-HK/Microsoft.Maui.Controls.resources.dll": {
+            "locale": "zh-HK"
+          },
+          "lib/net8.0-windows10.0.19041/zh-Hans/Microsoft.Maui.Controls.resources.dll": {
+            "locale": "zh-Hans"
+          },
+          "lib/net8.0-windows10.0.19041/zh-Hant/Microsoft.Maui.Controls.resources.dll": {
+            "locale": "zh-Hant"
+          }
+        }
+      },
+      "Microsoft.Maui.Controls.Xaml/8.0.83": {
+        "dependencies": {
+          "Microsoft.Extensions.Configuration": "8.0.0",
+          "Microsoft.Maui.Controls.Core": "8.0.83",
+          "Microsoft.Maui.Core": "8.0.83"
+        },
+        "runtime": {
+          "lib/net8.0-windows10.0.19041/Microsoft.Maui.Controls.Xaml.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "8.0.8324.52914"
+          }
+        }
+      },
+      "Microsoft.Maui.Core/8.0.83": {
+        "dependencies": {
+          "Microsoft.Extensions.Configuration": "8.0.0",
+          "Microsoft.Extensions.DependencyInjection": "8.0.1",
+          "Microsoft.Extensions.Logging": "8.0.1",
+          "Microsoft.Extensions.Logging.Abstractions": "8.0.2",
+          "Microsoft.Graphics.Win2D": "1.2.0",
+          "Microsoft.Maui.Essentials": "8.0.83",
+          "Microsoft.Maui.Graphics": "8.0.83",
+          "Microsoft.Maui.Graphics.Win2D.WinUI.Desktop": "8.0.83",
+          "Microsoft.Windows.SDK.BuildTools": "10.0.22621.756",
+          "Microsoft.WindowsAppSDK": "1.5.240627000"
+        },
+        "runtime": {
+          "lib/net8.0-windows10.0.19041/Microsoft.Maui.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "8.0.8324.52914"
+          }
+        }
+      },
+      "Microsoft.Maui.Essentials/8.0.83": {
+        "dependencies": {
+          "Microsoft.Maui.Graphics": "8.0.83",
+          "Microsoft.WindowsAppSDK": "1.5.240627000"
+        },
+        "runtime": {
+          "lib/net8.0-windows10.0.19041/Microsoft.Maui.Essentials.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "8.0.8324.52914"
+          }
+        }
+      },
+      "Microsoft.Maui.Graphics/8.0.83": {
+        "dependencies": {
+          "Microsoft.Graphics.Win2D": "1.2.0",
+          "Microsoft.IO.RecyclableMemoryStream": "3.0.1",
+          "Microsoft.WindowsAppSDK": "1.5.240627000"
+        },
+        "runtime": {
+          "lib/net8.0-windows10.0.19041/Microsoft.Maui.Graphics.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "8.0.8324.52914"
+          }
+        }
+      },
+      "Microsoft.Maui.Graphics.Win2D.WinUI.Desktop/8.0.83": {
+        "dependencies": {
+          "Microsoft.Graphics.Win2D": "1.2.0",
+          "Microsoft.Maui.Graphics": "8.0.83",
+          "Microsoft.WindowsAppSDK": "1.5.240627000"
+        },
+        "runtime": {
+          "lib/net8.0-windows10.0.19041/Microsoft.Maui.Graphics.Win2D.WinUI.Desktop.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "8.0.8324.52914"
+          }
+        }
+      },
+      "Microsoft.Maui.Resizetizer/8.0.83": {},
+      "Microsoft.Windows.SDK.BuildTools/10.0.22621.756": {},
+      "Microsoft.WindowsAppSDK/1.5.240627000": {
+        "dependencies": {
+          "Microsoft.Windows.SDK.BuildTools": "10.0.22621.756"
+        },
+        "runtime": {
+          "lib/net6.0-windows10.0.18362.0/Microsoft.InteractiveExperiences.Projection.dll": {
+            "assemblyVersion": "10.0.0.0",
+            "fileVersion": "10.0.26105.1002"
+          },
+          "lib/net6.0-windows10.0.18362.0/Microsoft.WinUI.dll": {
+            "assemblyVersion": "3.0.0.0",
+            "fileVersion": "3.0.0.2406"
+          },
+          "lib/net6.0-windows10.0.18362.0/Microsoft.Windows.AppLifecycle.Projection.dll": {
+            "assemblyVersion": "1.5.0.0",
+            "fileVersion": "1.5.0.0"
+          },
+          "lib/net6.0-windows10.0.18362.0/Microsoft.Windows.AppNotifications.Builder.Projection.dll": {
+            "assemblyVersion": "1.5.0.0",
+            "fileVersion": "1.5.0.0"
+          },
+          "lib/net6.0-windows10.0.18362.0/Microsoft.Windows.AppNotifications.Projection.dll": {
+            "assemblyVersion": "1.5.0.0",
+            "fileVersion": "1.5.0.0"
+          },
+          "lib/net6.0-windows10.0.18362.0/Microsoft.Windows.ApplicationModel.DynamicDependency.Projection.dll": {
+            "assemblyVersion": "1.5.0.0",
+            "fileVersion": "1.5.0.0"
+          },
+          "lib/net6.0-windows10.0.18362.0/Microsoft.Windows.ApplicationModel.Resources.Projection.dll": {
+            "assemblyVersion": "1.5.0.0",
+            "fileVersion": "1.5.0.0"
+          },
+          "lib/net6.0-windows10.0.18362.0/Microsoft.Windows.ApplicationModel.WindowsAppRuntime.Projection.dll": {
+            "assemblyVersion": "1.5.0.0",
+            "fileVersion": "1.5.0.0"
+          },
+          "lib/net6.0-windows10.0.18362.0/Microsoft.Windows.Management.Deployment.Projection.dll": {
+            "assemblyVersion": "1.5.0.0",
+            "fileVersion": "1.5.0.0"
+          },
+          "lib/net6.0-windows10.0.18362.0/Microsoft.Windows.PushNotifications.Projection.dll": {
+            "assemblyVersion": "1.5.0.0",
+            "fileVersion": "1.5.0.0"
+          },
+          "lib/net6.0-windows10.0.18362.0/Microsoft.Windows.Security.AccessControl.Projection.dll": {
+            "assemblyVersion": "1.5.0.0",
+            "fileVersion": "1.5.0.0"
+          },
+          "lib/net6.0-windows10.0.18362.0/Microsoft.Windows.System.Power.Projection.dll": {
+            "assemblyVersion": "1.5.0.0",
+            "fileVersion": "1.5.0.0"
+          },
+          "lib/net6.0-windows10.0.18362.0/Microsoft.Windows.System.Projection.dll": {
+            "assemblyVersion": "1.5.0.0",
+            "fileVersion": "1.5.0.0"
+          },
+          "lib/net6.0-windows10.0.18362.0/Microsoft.Windows.Widgets.Projection.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          },
+          "lib/net6.0-windows10.0.18362.0/Microsoft.WindowsAppRuntime.Bootstrap.Net.dll": {
+            "assemblyVersion": "1.5.0.0",
+            "fileVersion": "1.5.0.0"
+          }
+        },
+        "native": {
+          "runtimes/win10-x64/native/Microsoft.WindowsAppRuntime.Bootstrap.dll": {
+            "fileVersion": "1.5.0.0"
+          }
+        }
+      },
+      "Newtonsoft.Json/13.0.3": {
+        "runtime": {
+          "lib/net6.0/Newtonsoft.Json.dll": {
+            "assemblyVersion": "13.0.0.0",
+            "fileVersion": "13.0.3.27908"
+          }
+        }
+      },
+      "RabbitMQ.Client/6.8.1": {
+        "dependencies": {
+          "System.Memory": "4.5.5",
+          "System.Threading.Channels": "7.0.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/RabbitMQ.Client.dll": {
+            "assemblyVersion": "6.0.0.0",
+            "fileVersion": "6.8.1.0"
+          }
+        }
+      },
+      "System.Memory/4.5.5": {},
+      "System.Speech/8.0.0": {
+        "runtime": {
+          "runtimes/win/lib/net8.0/System.Speech.dll": {
+            "assemblyVersion": "8.0.0.0",
+            "fileVersion": "8.0.23.53103"
+          }
+        }
+      },
+      "System.Threading.Channels/7.0.0": {},
+      "Microsoft.Maui.Controls.HotReload.Forms/17.0.0.0": {
+        "runtime": {
+          "Microsoft.Maui.Controls.HotReload.Forms.dll": {
+            "assemblyVersion": "17.0.0.0",
+            "fileVersion": "17.12.40308.65294"
+          }
+        }
+      },
+      "Microsoft.VisualStudio.DesignTools.MobileTapContracts/17.0.0.0": {
+        "runtime": {
+          "Microsoft.VisualStudio.DesignTools.MobileTapContracts.dll": {
+            "assemblyVersion": "17.0.0.0",
+            "fileVersion": "17.12.40308.65294"
+          }
+        }
+      },
+      "Microsoft.VisualStudio.DesignTools.TapContract/17.0.0.0": {
+        "runtime": {
+          "Microsoft.VisualStudio.DesignTools.TapContract.dll": {
+            "assemblyVersion": "17.0.0.0",
+            "fileVersion": "17.12.40308.65294"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "MauiApp_rabbit_IA/1.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "runtimepack.Microsoft.Windows.SDK.NET.Ref/10.0.19041.54": {
+      "type": "runtimepack",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "CommunityToolkit.Maui/9.1.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-vDFIMhs/NRKEaHrrxq3AR3qEnfc0L6nno3/ZEFRUctDdwcYKNfmx8aof1lj8++dX+56c282SLHyuCnN6eH2Mpg==",
+      "path": "communitytoolkit.maui/9.1.1",
+      "hashPath": "communitytoolkit.maui.9.1.1.nupkg.sha512"
+    },
+    "CommunityToolkit.Maui.Core/9.1.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-2O5bgBnwYLKXUMSA4a0hd3ildtr9t5Rw109y7Lz0udnX4C9JrW8Xi1mLDuUcNmK+U37gulhJGLb2tCMc+cbo3w==",
+      "path": "communitytoolkit.maui.core/9.1.1",
+      "hashPath": "communitytoolkit.maui.core.9.1.1.nupkg.sha512"
+    },
+    "Microsoft.Extensions.Configuration/8.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-0J/9YNXTMWSZP2p2+nvl8p71zpSwokZXZuJW+VjdErkegAnFdO1XlqtA62SJtgVYHdKu3uPxJHcMR/r35HwFBA==",
+      "path": "microsoft.extensions.configuration/8.0.0",
+      "hashPath": "microsoft.extensions.configuration.8.0.0.nupkg.sha512"
+    },
+    "Microsoft.Extensions.Configuration.Abstractions/8.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-3lE/iLSutpgX1CC0NOW70FJoGARRHbyKmG7dc0klnUZ9Dd9hS6N/POPWhKhMLCEuNN5nXEY5agmlFtH562vqhQ==",
+      "path": "microsoft.extensions.configuration.abstractions/8.0.0",
+      "hashPath": "microsoft.extensions.configuration.abstractions.8.0.0.nupkg.sha512"
+    },
+    "Microsoft.Extensions.DependencyInjection/8.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-BmANAnR5Xd4Oqw7yQ75xOAYODybZQRzdeNucg7kS5wWKd2PNnMdYtJ2Vciy0QLylRmv42DGl5+AFL9izA6F1Rw==",
+      "path": "microsoft.extensions.dependencyinjection/8.0.1",
+      "hashPath": "microsoft.extensions.dependencyinjection.8.0.1.nupkg.sha512"
+    },
+    "Microsoft.Extensions.DependencyInjection.Abstractions/8.0.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-3iE7UF7MQkCv1cxzCahz+Y/guQbTqieyxyaWKhrRO91itI9cOKO76OHeQDahqG4MmW5umr3CcCvGmK92lWNlbg==",
+      "path": "microsoft.extensions.dependencyinjection.abstractions/8.0.2",
+      "hashPath": "microsoft.extensions.dependencyinjection.abstractions.8.0.2.nupkg.sha512"
+    },
+    "Microsoft.Extensions.Logging/8.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-4x+pzsQEbqxhNf1QYRr5TDkLP9UsLT3A6MdRKDDEgrW7h1ljiEPgTNhKYUhNCCAaVpQECVQ+onA91PTPnIp6Lw==",
+      "path": "microsoft.extensions.logging/8.0.1",
+      "hashPath": "microsoft.extensions.logging.8.0.1.nupkg.sha512"
+    },
+    "Microsoft.Extensions.Logging.Abstractions/8.0.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-nroMDjS7hNBPtkZqVBbSiQaQjWRDxITI8Y7XnDs97rqG3EbzVTNLZQf7bIeUJcaHOV8bca47s1Uxq94+2oGdxA==",
+      "path": "microsoft.extensions.logging.abstractions/8.0.2",
+      "hashPath": "microsoft.extensions.logging.abstractions.8.0.2.nupkg.sha512"
+    },
+    "Microsoft.Extensions.Logging.Debug/8.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-dt0x21qBdudHLW/bjMJpkixv858RRr8eSomgVbU8qljOyfrfDGi1JQvpF9w8S7ziRPtRKisuWaOwFxJM82GxeA==",
+      "path": "microsoft.extensions.logging.debug/8.0.0",
+      "hashPath": "microsoft.extensions.logging.debug.8.0.0.nupkg.sha512"
+    },
+    "Microsoft.Extensions.Options/8.0.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-dWGKvhFybsaZpGmzkGCbNNwBD1rVlWzrZKANLW/CcbFJpCEceMCGzT7zZwHOGBCbwM0SzBuceMj5HN1LKV1QqA==",
+      "path": "microsoft.extensions.options/8.0.2",
+      "hashPath": "microsoft.extensions.options.8.0.2.nupkg.sha512"
+    },
+    "Microsoft.Extensions.Primitives/8.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-bXJEZrW9ny8vjMF1JV253WeLhpEVzFo1lyaZu1vQ4ZxWUlVvknZ/+ftFgVheLubb4eZPSwwxBeqS1JkCOjxd8g==",
+      "path": "microsoft.extensions.primitives/8.0.0",
+      "hashPath": "microsoft.extensions.primitives.8.0.0.nupkg.sha512"
+    },
+    "Microsoft.Graphics.Win2D/1.2.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-7bAo8ObjCy/br0eW0nONRfVKehJu5aDe/KQekWeNXslwTOO2rhrIfWaVGepsXyVqmqwHoLJ31g1HsT7FLdBCoQ==",
+      "path": "microsoft.graphics.win2d/1.2.0",
+      "hashPath": "microsoft.graphics.win2d.1.2.0.nupkg.sha512"
+    },
+    "Microsoft.IO.RecyclableMemoryStream/3.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-s/s20YTVY9r9TPfTrN5g8zPF1YhwxyqO6PxUkrYTGI2B+OGPe9AdajWZrLhFqXIvqIW23fnUE4+ztrUWNU1+9g==",
+      "path": "microsoft.io.recyclablememorystream/3.0.1",
+      "hashPath": "microsoft.io.recyclablememorystream.3.0.1.nupkg.sha512"
+    },
+    "Microsoft.Maui.Controls/8.0.83": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-GnPhzLSCx3evTQIZrM8hmkYubJ4JCxZUOHppCcFnVhczWpvmKyNdyJEgbQ24iwUTdPrzIrUFX2Hj7cEmt0BKUQ==",
+      "path": "microsoft.maui.controls/8.0.83",
+      "hashPath": "microsoft.maui.controls.8.0.83.nupkg.sha512"
+    },
+    "Microsoft.Maui.Controls.Build.Tasks/8.0.83": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-zxKbbgXXryp6iyUB2BkMSCZs+fL6HORU32QoBOffydgr43105hDN5xJoidC+ocAqz7a/mkTOkh0z2fOaYsJR6w==",
+      "path": "microsoft.maui.controls.build.tasks/8.0.83",
+      "hashPath": "microsoft.maui.controls.build.tasks.8.0.83.nupkg.sha512"
+    },
+    "Microsoft.Maui.Controls.Compatibility/8.0.83": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-FFXjiaj3cLOgrZS3RQY1DocxjWiF28oWXTui1z5ke0j+AC9dhBYcE0EOFBQgFfb3lXIaww05wLdVgLv8O1Iwtg==",
+      "path": "microsoft.maui.controls.compatibility/8.0.83",
+      "hashPath": "microsoft.maui.controls.compatibility.8.0.83.nupkg.sha512"
+    },
+    "Microsoft.Maui.Controls.Core/8.0.83": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-efT/y9yaYRG5NqmckXFvSSZpzscg8GnU7QvHYrkSkZgW/PSPTETN78iocudTIC3TMSJhSTBe3sdFVIVSDR9O1w==",
+      "path": "microsoft.maui.controls.core/8.0.83",
+      "hashPath": "microsoft.maui.controls.core.8.0.83.nupkg.sha512"
+    },
+    "Microsoft.Maui.Controls.Xaml/8.0.83": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-RPOdOJvdpWwgdu0xC+e38VAs9W0Earc0s+5xBAV4Sj4X7BD19rfqb5eEAc3p1Bmq99uoWLEoJ6v6IZXvCm4Lpg==",
+      "path": "microsoft.maui.controls.xaml/8.0.83",
+      "hashPath": "microsoft.maui.controls.xaml.8.0.83.nupkg.sha512"
+    },
+    "Microsoft.Maui.Core/8.0.83": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Kl0XjS+PcI3auo/ksjIqcEiRMNXgTWRs+SqTY6iFO3/uGpfW6TJd5AS9FyBMEtj0G/mjevlY1UR4sfvQwoBItA==",
+      "path": "microsoft.maui.core/8.0.83",
+      "hashPath": "microsoft.maui.core.8.0.83.nupkg.sha512"
+    },
+    "Microsoft.Maui.Essentials/8.0.83": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-S6805HnbbbT5nNAxj86dATXm9pophANB96i2FYKuoVlN4CqCiZep4LKBNLlvDD41tk/hGP+Oy+YWsYgMWz/OEA==",
+      "path": "microsoft.maui.essentials/8.0.83",
+      "hashPath": "microsoft.maui.essentials.8.0.83.nupkg.sha512"
+    },
+    "Microsoft.Maui.Graphics/8.0.83": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-zR5zG20ozy/oXCLW8hV5HmBblx5UIxZUQeKCfcCMpUs4/3vEXcWBiCyjTAN7+EvQw0jCdm6g95uUZwIFSXSYwQ==",
+      "path": "microsoft.maui.graphics/8.0.83",
+      "hashPath": "microsoft.maui.graphics.8.0.83.nupkg.sha512"
+    },
+    "Microsoft.Maui.Graphics.Win2D.WinUI.Desktop/8.0.83": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-29GkElC2bgq/zrbI44/yshMiEQ/K4yPIS6RtmhypUrZMap/aqAC5nJ/v0xJwx90MYvcrHoUUMzALQhWSkgKwlQ==",
+      "path": "microsoft.maui.graphics.win2d.winui.desktop/8.0.83",
+      "hashPath": "microsoft.maui.graphics.win2d.winui.desktop.8.0.83.nupkg.sha512"
+    },
+    "Microsoft.Maui.Resizetizer/8.0.83": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-cMDrOIUmsseE6QC1UMRYe4MRYQiSi0EHiyIMmljpqYHUi9ejEZCxFxQWH8us0o9QclXAjiknfyNnnivYh7k59w==",
+      "path": "microsoft.maui.resizetizer/8.0.83",
+      "hashPath": "microsoft.maui.resizetizer.8.0.83.nupkg.sha512"
+    },
+    "Microsoft.Windows.SDK.BuildTools/10.0.22621.756": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-7ZL2sFSioYm1Ry067Kw1hg0SCcW5kuVezC2SwjGbcPE61Nn+gTbH86T73G3LcEOVj0S3IZzNuE/29gZvOLS7VA==",
+      "path": "microsoft.windows.sdk.buildtools/10.0.22621.756",
+      "hashPath": "microsoft.windows.sdk.buildtools.10.0.22621.756.nupkg.sha512"
+    },
+    "Microsoft.WindowsAppSDK/1.5.240627000": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-qzzWG8rxZyzKzBuUdwr4ApezMINf+NT2b8EiEE5fchczNJJmDwlHImMWxX1pHK1W8Yby99alqLyC8DB0fIrhuA==",
+      "path": "microsoft.windowsappsdk/1.5.240627000",
+      "hashPath": "microsoft.windowsappsdk.1.5.240627000.nupkg.sha512"
+    },
+    "Newtonsoft.Json/13.0.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-HrC5BXdl00IP9zeV+0Z848QWPAoCr9P3bDEZguI+gkLcBKAOxix/tLEAAHC+UvDNPv4a2d18lOReHMOagPa+zQ==",
+      "path": "newtonsoft.json/13.0.3",
+      "hashPath": "newtonsoft.json.13.0.3.nupkg.sha512"
+    },
+    "RabbitMQ.Client/6.8.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-jNsmGgmCNw2S/NzskeN2ijtGywtH4Sk/G6jWUTD5sY9SrC27Xz6BsLIiB8hdsfjeyWCa4j4GvCIGkpE8wrjU1Q==",
+      "path": "rabbitmq.client/6.8.1",
+      "hashPath": "rabbitmq.client.6.8.1.nupkg.sha512"
+    },
+    "System.Memory/4.5.5": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-XIWiDvKPXaTveaB7HVganDlOCRoj03l+jrwNvcge/t8vhGYKvqV+dMv6G4SAX2NoNmN0wZfVPTAlFwZcZvVOUw==",
+      "path": "system.memory/4.5.5",
+      "hashPath": "system.memory.4.5.5.nupkg.sha512"
+    },
+    "System.Speech/8.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-CNuiA6vb95Oe5PRjClZEBiaju31vwB8OIeCgeSBXyZL6+MS4RVVB2X/C11z0xCkooHE3Vy91nM2z76emIzR+sg==",
+      "path": "system.speech/8.0.0",
+      "hashPath": "system.speech.8.0.0.nupkg.sha512"
+    },
+    "System.Threading.Channels/7.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-qmeeYNROMsONF6ndEZcIQ+VxR4Q/TX/7uIVLJqtwIWL7dDWeh0l1UIqgo4wYyjG//5lUNhwkLDSFl+pAWO6oiA==",
+      "path": "system.threading.channels/7.0.0",
+      "hashPath": "system.threading.channels.7.0.0.nupkg.sha512"
+    },
+    "Microsoft.Maui.Controls.HotReload.Forms/17.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Microsoft.VisualStudio.DesignTools.MobileTapContracts/17.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Microsoft.VisualStudio.DesignTools.TapContract/17.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

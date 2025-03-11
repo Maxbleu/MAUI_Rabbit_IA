@@ -13,19 +13,36 @@ namespace MauiApp_rabbit_mq_cliente_1.ViewModels
         //  CAMPOS
         private IModel _channel;
         private string _queueName;
-        private string _oldHostName;
-        private string _oldExchangeName;
-        private bool _isEnabledButton = false;
-        private EventingBasicConsumer _consumer;
-        private string _hostName = "192.168.1.149";
-        private string _exchangeName = "grupoChat";
-        private bool _isRabbitMQServiceRunning = false;
         private string _appId = Guid.NewGuid().ToString();
-        private bool _hasBeenActivatedSaveConfigurationButton = false;
 
+        private EventingBasicConsumer _consumer;
         public event PropertyChangedEventHandler? PropertyChanged;
 
+        private Brush _color = Brush.Red;
+        private Brush _oldColor = Brush.Red;
+        private bool _oldIsEnabledButton = true;
+        private bool _isEnabledButton = true;
+        private string _oldHostName;
+        private string _hostName = "192.168.1.149";
+        private string _exchangeName = "grupoChat";
+        private string _oldExchangeName;
+
+        private bool _isRabbitMQServiceRunning = false;
+        private bool _hasBeenActivatedSaveConfigurationButton = false;
+
         //  BINDING ELEMENTS
+        public Brush Color
+        {
+            get => _color;
+            set
+            {
+                if (_color != value)
+                {
+                    _color = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
         public string AppId
         {
             get => _appId;
@@ -95,6 +112,8 @@ namespace MauiApp_rabbit_mq_cliente_1.ViewModels
                     _isRabbitMQServiceRunning = value;
                     OnPropertyChanged();
                 }
+
+                this.Color = this.IsRabbitMQServiceRunning ? Brush.Green : Brush.Red;
             }
         }
         public EventingBasicConsumer Consumer
@@ -167,9 +186,9 @@ namespace MauiApp_rabbit_mq_cliente_1.ViewModels
 
                     this.IsRabbitMQServiceRunning = true;
                     this.IsEnabledButton = false;
+                    this.Color = Brush.Green;
 
-                    this._oldExchangeName = this.ExchangeName;
-                    this._oldHostName = this.HostName;
+                    LoadNewOldConfiguration();
 
                     ThingsUtils.SendSnakbarMessage("Se ha guardado correctamente la configuración RabbitMQ");
                 }
@@ -182,6 +201,7 @@ namespace MauiApp_rabbit_mq_cliente_1.ViewModels
             {
                 this.IsEnabledButton = true;
                 ThingsUtils.SendSnakbarMessage("No se ha encontrado el host para RabbitMQ");
+                this.Color = Brush.Red;
             }
         }
         /// <summary>
@@ -216,9 +236,21 @@ namespace MauiApp_rabbit_mq_cliente_1.ViewModels
         /// </summary>
         public void LoadOldConfiguration()
         {
-            this.ExchangeName = this._oldExchangeName;
-            this.HostName = this._oldHostName;
-            this.IsEnabledButton = false;
+            this.ExchangeName = String.IsNullOrWhiteSpace(this._oldExchangeName) ? this.ExchangeName : this._oldExchangeName;
+            this.HostName = String.IsNullOrWhiteSpace(this._oldHostName) ? this.HostName : this._oldHostName;
+            this.IsEnabledButton = this._oldIsEnabledButton;
+            this.Color = this._oldColor;
+        }
+        /// <summary>
+        /// Este método se encarga de carga la nueva configuración
+        /// en la configuración antigua
+        /// </summary>
+        private void LoadNewOldConfiguration()
+        {
+            this._oldExchangeName = this.ExchangeName;
+            this._oldHostName = this.HostName;
+            this._oldIsEnabledButton = this.IsEnabledButton;
+            this._oldColor = this.Color;
         }
 
         #region INotifyPropertyChanged

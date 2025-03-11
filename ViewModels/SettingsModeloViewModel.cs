@@ -14,6 +14,7 @@ namespace MauiApp_rabbit_mq_cliente_1.ViewModels
         public event PropertyChangedEventHandler? PropertyChanged;
         private int _indexModelSelected = 1;
 
+        private Brush _color = Brush.Red;
         private string _protocolUserModels = "http";
         private string _hostNameUserModels = "192.168.1.149";
         private string _portUserModels = "1234";
@@ -34,6 +35,19 @@ namespace MauiApp_rabbit_mq_cliente_1.ViewModels
 
         //  BINDING ELEMENTS
         public ObservableCollection<string> Models { get; set; }
+
+        public Brush Color
+        {
+            get => this._color;
+            set
+            {
+                if(this._color != value)
+                {
+                    this._color = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
         public int IndexModelSelected
         {
             get => _indexModelSelected;
@@ -152,6 +166,8 @@ namespace MauiApp_rabbit_mq_cliente_1.ViewModels
                     _isModeloServiceRunning = value;
                     OnPropertyChanged();
                 }
+
+                this.Color = this.IsModeloServiceRunning ? Brush.Green : Brush.Red;
             }
         }
         public bool HasBeenActivatedReloadModels

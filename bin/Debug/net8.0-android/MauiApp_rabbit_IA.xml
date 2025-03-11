@@ -63,6 +63,12 @@
             contrario a este
             </summary>
         </member>
+        <member name="M:MauiApp_rabbit_mq_cliente_1.ViewModels.ChatViewModel.SendMessage">
+            <summary>
+            Este método se encarga de enviar el mensaje
+            de respuesta del modelo al exchange
+            </summary>
+        </member>
         <member name="M:MauiApp_rabbit_mq_cliente_1.ViewModels.ChatViewModel.ShowMessage">
             <summary>
             Este método se encarga de mostrar los
@@ -76,12 +82,6 @@
             obtener la respuesta que ha procesado
             </summary>
             <returns></returns>
-        </member>
-        <member name="M:MauiApp_rabbit_mq_cliente_1.ViewModels.ChatViewModel.SendMessage">
-            <summary>
-            Este método se encarga de enviar el mensaje
-            de respuesta del modelo al exchange
-            </summary>
         </member>
         <member name="M:MauiApp_rabbit_mq_cliente_1.ViewModels.SettingsModeloViewModel.ReloadModels(System.Object)">
             <summary>

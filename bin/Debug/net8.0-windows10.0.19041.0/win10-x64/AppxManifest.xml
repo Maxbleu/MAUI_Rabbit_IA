@@ -7,10 +7,10 @@
 
     Para obtener más información acerca de los archivos de manifiesto del paquete, vea http://go.microsoft.com/fwlink/?LinkID=241727
   -->
-  <Identity Name="com.companyname.mauiapp_rabbit_mq_cliente_1" Publisher="CN=User Name" Version="1.0.0.1" ProcessorArchitecture="x64" />
+  <Identity Name="com.companyname.mauiapp_rabbit_IA" Publisher="CN=User Name" Version="1.0.0.1" ProcessorArchitecture="x64" />
   <mp:PhoneIdentity PhoneProductId="831C9347-1323-4400-9097-DE7E90BC0CB5" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
-    <DisplayName>MauiApp_rabbit_mq_cliente_1</DisplayName>
+    <DisplayName>MauiApp_rabbit_IA</DisplayName>
     <PublisherDisplayName>User Name</PublisherDisplayName>
     <Logo>appiconStoreLogo.png</Logo>
   </Properties>
@@ -23,9 +23,9 @@
     <Resource Language="EN-US" />
   </Resources>
   <Applications>
-    <Application Id="App" Executable="MauiApp_rabbit_mq_cliente_1.exe" EntryPoint="Windows.FullTrustApplication">
-      <uap:VisualElements DisplayName="MauiApp_rabbit_mq_cliente_1" Description="MauiApp_rabbit_mq_cliente_1" Square150x150Logo="appiconMediumTile.png" Square44x44Logo="appiconLogo.png" BackgroundColor="transparent">
-        <uap:DefaultTile Square71x71Logo="appiconSmallTile.png" Wide310x150Logo="appiconWideTile.png" Square310x310Logo="appiconLargeTile.png" ShortName="MauiApp_rabbit_mq_cliente_1">
+    <Application Id="App" Executable="MauiApp_rabbit_IA.exe" EntryPoint="Windows.FullTrustApplication">
+      <uap:VisualElements DisplayName="MauiApp_rabbit_IA" Description="MauiApp_rabbit_IA" Square150x150Logo="appiconMediumTile.png" Square44x44Logo="appiconLogo.png" BackgroundColor="transparent">
+        <uap:DefaultTile Square71x71Logo="appiconSmallTile.png" Wide310x150Logo="appiconWideTile.png" Square310x310Logo="appiconLargeTile.png" ShortName="MauiApp_rabbit_IA">
           <uap:ShowNameOnTiles>
             <uap:ShowOn Tile="square150x150Logo" />
             <uap:ShowOn Tile="wide310x150Logo" />

@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:CommunityToolkit.Maui.Core;assembly=CommunityToolkit.Maui.Core"
+             xmlns:Shapes="clr-namespace:Microsoft.Maui.Controls.Shapes;assembly=Microsoft.Maui.Controls"
              x:Class="MauiApp_rabbit_mq_cliente_1.Views.SettingsModeloPage"
              xmlns:vm="clr-namespace:MauiApp_rabbit_mq_cliente_1.ViewModels">
 
@@ -22,9 +23,27 @@
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
 
-            <StackLayout Grid.Row="0">
-                <Label Text="User model settings" FontSize="20" FontAttributes="Bold"/>
-            </StackLayout>
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                
+                <Label Grid.Column="0"
+                       Text="User model settings" 
+                       FontSize="20" 
+                       FontAttributes="Bold"/>
+
+                <Shapes:Ellipse 
+                        Grid.Column="1"
+                        WidthRequest="50" 
+                        HeightRequest="50" 
+                        Fill="{Binding Color}" 
+                        Stroke="Gray" 
+                        StrokeThickness="10"
+                        HorizontalOptions="End"/>
+
+            </Grid>
 
             <Grid Grid.Row="1" Margin="0,20,0,0">
                 <Grid.RowDefinitions>
