@@ -14,6 +14,7 @@ namespace MauiApp_rabbit_mq_cliente_1.ViewModels
     {
 
         //  CAMPOS
+        private int _nConnections = 1;
         private string _nombreChat;
         private string _newUserIaMessage;
         private bool _isActiveConversation = true;
@@ -55,6 +56,18 @@ namespace MauiApp_rabbit_mq_cliente_1.ViewModels
                 if (_isActiveConversation != value)
                 {
                     _isActiveConversation = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+        public int NConnections
+        {
+            get => _nConnections;
+            set
+            {
+                if (_nConnections != value)
+                {
+                    _nConnections = value;
                     OnPropertyChanged();
                 }
             }
@@ -159,11 +172,18 @@ namespace MauiApp_rabbit_mq_cliente_1.ViewModels
                     {
                         ThingsUtils.SendSnakbarMessage("Pulsa en la opción de arriba a la derecha para habilitar la conversación con el modelo");
                     }
+
+                    this.NConnections = this._settingsRabbitMQViewModel.NConnections;
                 }
                 else
                 {
                     ThingsUtils.SendSnakbarMessage("No hay un modelo disponible para poder gestionar la respuesta por favor, reconfigure los parametros de este");
                 }
+            }
+
+            if(e.PropertyName == "IsRabbitMQServiceRunning")
+            {
+                this.NConnections = this._settingsRabbitMQViewModel.NConnections;
             }
         }
 
