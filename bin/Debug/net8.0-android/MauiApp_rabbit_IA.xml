@@ -48,14 +48,6 @@
             <param name="sender"></param>
             <param name="e"></param>
         </member>
-        <member name="M:MauiApp_rabbit_mq_cliente_1.ViewModels.ChatViewModel.OnReceived(System.Object,RabbitMQ.Client.Events.BasicDeliverEventArgs)">
-            <summary>
-            Este método se encarga de recibir todos los mensajes
-            que son recibidos en el exchange al que esta subcripto
-            </summary>
-            <param name="sender"></param>
-            <param name="e"></param>
-        </member>
         <member name="M:MauiApp_rabbit_mq_cliente_1.ViewModels.ChatViewModel.ContinueStopConversation">
             <summary>
             Este método se encarga de convertir el valor
@@ -136,6 +128,14 @@
             ha procesado nuestra IA
             </summary>
         </member>
+        <member name="M:MauiApp_rabbit_mq_cliente_1.ViewModels.SettingsRabbitMQViewModel.OnReceived(System.Object,RabbitMQ.Client.Events.BasicDeliverEventArgs)">
+            <summary>
+            Este método se encarga de recibir todos los mensajes
+            que son recibidos en el exchange al que esta subcripto
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
         <member name="M:MauiApp_rabbit_mq_cliente_1.ViewModels.SettingsRabbitMQViewModel.SaveConfiguration">
             <summary>
             Este método se encarga de indicar
@@ -147,6 +147,12 @@
             <summary>
             Este método carga la antigua configuración
             del formulario de RabbitMQ
+            </summary>
+        </member>
+        <member name="M:MauiApp_rabbit_mq_cliente_1.ViewModels.SettingsRabbitMQViewModel.LoadNewOldConfiguration">
+            <summary>
+            Este método se encarga de carga la nueva configuración
+            en la configuración antigua
             </summary>
         </member>
         <member name="M:Microsoft.Maui.Controls.ColorAnimationExtensions_Button.TextColorTo(Microsoft.Maui.Controls.Button,Microsoft.Maui.Graphics.Color,System.UInt32,System.UInt32,Microsoft.Maui.Easing,System.Threading.CancellationToken)">

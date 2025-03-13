@@ -29,6 +29,7 @@ namespace MauiApp_rabbit_mq_cliente_1.ViewModels
 
         private bool _isRabbitMQServiceRunning = false;
         private bool _hasBeenActivatedSaveConfigurationButton = false;
+        private string _newMessage;
 
         //  BINDING ELEMENTS
         public Brush Color
@@ -51,18 +52,6 @@ namespace MauiApp_rabbit_mq_cliente_1.ViewModels
                 if (_appId != value)
                 {
                     _appId = value;
-                    OnPropertyChanged();
-                }
-            }
-        }
-        public IModel Channel
-        {
-            get => _channel;
-            set
-            {
-                if (_channel != value)
-                {
-                    _channel = value;
                     OnPropertyChanged();
                 }
             }
@@ -116,18 +105,6 @@ namespace MauiApp_rabbit_mq_cliente_1.ViewModels
                 this.Color = this.IsRabbitMQServiceRunning ? Brush.Green : Brush.Red;
             }
         }
-        public EventingBasicConsumer Consumer
-        {
-            get => _consumer;
-            set
-            {
-                if (_consumer != value)
-                {
-                    _consumer = value;
-                    OnPropertyChanged();
-                }
-            }
-        }
         public bool HasBeenActivatedSaveConfigurationButton
         {
             get => _hasBeenActivatedSaveConfigurationButton;
@@ -136,6 +113,18 @@ namespace MauiApp_rabbit_mq_cliente_1.ViewModels
                 if (_hasBeenActivatedSaveConfigurationButton != value)
                 {
                     _hasBeenActivatedSaveConfigurationButton = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+        public string NewMessage
+        {
+            get => this._newMessage;
+            set
+            {
+                if (_newMessage != value)
+                {
+                    _newMessage = value;
                     OnPropertyChanged();
                 }
             }
@@ -168,21 +157,23 @@ namespace MauiApp_rabbit_mq_cliente_1.ViewModels
                 if (await Task.WhenAny(connectionTask, Task.Delay(TimeSpan.FromSeconds(3))) == connectionTask)
                 {
                     var connection = await connectionTask;
-                    this.Channel = connection.CreateModel();
+                    this._channel = connection.CreateModel();
 
-                    this.Channel.ExchangeDeclare(exchange: this.ExchangeName, type: "fanout");
+                    this._channel.ExchangeDeclare(exchange: this.ExchangeName, type: "fanout");
 
-                    this._queueName = this.Channel.QueueDeclare().QueueName;
+                    this._queueName = this._channel.QueueDeclare().QueueName;
 
-                    this.Channel.QueueBind(queue: this._queueName,
+                    this._channel.QueueBind(queue: this._queueName,
                                       exchange: this.ExchangeName,
                                       routingKey: "");
 
-                    this.Consumer = new EventingBasicConsumer(this.Channel);
+                    this._consumer = new EventingBasicConsumer(this._channel);
 
-                    this.Channel.BasicConsume(queue: this._queueName,
+                    _consumer.Received += OnReceived;
+
+                    this._channel.BasicConsume(queue: this._queueName,
                                          autoAck: false,
-                                         consumer: this.Consumer);
+                                         consumer: this._consumer);
 
                     this.IsRabbitMQServiceRunning = true;
                     this.IsEnabledButton = false;
@@ -221,6 +212,20 @@ namespace MauiApp_rabbit_mq_cliente_1.ViewModels
             properties.AppId = this.AppId;
             this._channel.BasicPublish(exchange: this.ExchangeName, routingKey: "", basicProperties: properties, body: body);
         }
+        /// <summary>
+        /// Este método se encarga de recibir todos los mensajes
+        /// que son recibidos en el exchange al que esta subcripto
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void OnReceived(object sender, BasicDeliverEventArgs e)
+        {
+            if (e.BasicProperties.AppId == this.AppId) return;
+            var body = e.Body.ToArray();
+            this.NewMessage = Encoding.UTF8.GetString(body);
+            this._channel.BasicAck(deliveryTag: e.DeliveryTag, multiple: false);
+        }
+
         /// <summary>
         /// Este método se encarga de indicar
         /// que el boton guardar la configuración

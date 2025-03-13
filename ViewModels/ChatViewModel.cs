@@ -7,7 +7,6 @@ using MauiApp_rabbit_mq_cliente_1.Models;
 using MauiApp_rabbit_mq_cliente_1.Utils;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-using RabbitMQ.Client.Events;
 
 namespace MauiApp_rabbit_mq_cliente_1.ViewModels
 {
@@ -16,7 +15,7 @@ namespace MauiApp_rabbit_mq_cliente_1.ViewModels
 
         //  CAMPOS
         private string _nombreChat;
-        private string _newMessageText;
+        private string _newUserIaMessage;
         private bool _isActiveConversation = true;
         public event PropertyChangedEventHandler PropertyChanged;
         private SettingsModeloViewModel _settingsModeloViewModel;
@@ -36,14 +35,14 @@ namespace MauiApp_rabbit_mq_cliente_1.ViewModels
                 }
             }
         }
-        public string NewMessageText
+        public string NewUserIAMessage
         {
-            get => _newMessageText;
+            get => _newUserIaMessage;
             set
             {
-                if (_newMessageText != value)
+                if (_newUserIaMessage != value)
                 {
-                    _newMessageText = value;
+                    _newUserIaMessage = value;
                     OnPropertyChanged();
                 }
             }
@@ -122,11 +121,6 @@ namespace MauiApp_rabbit_mq_cliente_1.ViewModels
                 this.NombreChat = this._settingsRabbitMQViewModel.ExchangeName;
             }
 
-            if (e.PropertyName == "Consumer")
-            {
-                this._settingsRabbitMQViewModel.Consumer.Received += OnReceived;
-            }
-
             if (e.PropertyName == "HasBeenActivatedSaveConfigurationButton" && this._settingsRabbitMQViewModel.HasBeenActivatedSaveConfigurationButton)
             {
                 if (!this.IsActiveConversation)
@@ -142,43 +136,35 @@ namespace MauiApp_rabbit_mq_cliente_1.ViewModels
 
                 this._settingsRabbitMQViewModel.HasBeenActivatedSaveConfigurationButton = false;
             }
-        }
-        /// <summary>
-        /// Este método se encarga de recibir todos los mensajes
-        /// que son recibidos en el exchange al que esta subcripto
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void OnReceived(object sender, BasicDeliverEventArgs e)
-        {
-            if(this._settingsModeloViewModel.IsModeloServiceRunning)
-            {
-                if (this.IsActiveConversation)
-                {
-                    if (e.BasicProperties.AppId == this._settingsRabbitMQViewModel.AppId) return;
-                    var body = e.Body.ToArray();
-                    var message = Encoding.UTF8.GetString(body);
 
-                    Messages.Add(new Message
+            if (e.PropertyName == "NewMessage")
+            {
+                if (this._settingsModeloViewModel.IsModeloServiceRunning)
+                {
+                    string newMessage = this._settingsRabbitMQViewModel.NewMessage;
+                    
+                    this.Messages.Add(new Message
                     {
                         Id = DateTime.Now.Ticks.ToString(),
-                        Text = message,
+                        Text = newMessage,
                         IsCurrentUser = false
                     });
 
-                    this.NewMessageText = SendMessageToAIAsync(message).Result;
-                    SendMessage();
+                    if (this.IsActiveConversation)
+                    {
+                        this.NewUserIAMessage = SendMessageToAIAsync(newMessage).Result;
+                        SendMessage();
+                    }
+                    else
+                    {
+                        ThingsUtils.SendSnakbarMessage("Pulsa en la opción de arriba a la derecha para habilitar la conversación con el modelo");
+                    }
                 }
                 else
                 {
-                    ThingsUtils.SendSnakbarMessage("Pulsa en la opción de arriba a la derecha para habilitar la conversación con el modelo");
+                    ThingsUtils.SendSnakbarMessage("No hay un modelo disponible para poder gestionar la respuesta por favor, reconfigure los parametros de este");
                 }
             }
-            else
-            {
-                ThingsUtils.SendSnakbarMessage("No hay un modelo disponible para poder gestionar la respuesta por favor, reconfigure los parametros de este");
-            }
-            this._settingsRabbitMQViewModel.Channel.BasicAck(deliveryTag: e.DeliveryTag, multiple: false);
         }
 
         //  MENSAJES
@@ -198,7 +184,7 @@ namespace MauiApp_rabbit_mq_cliente_1.ViewModels
         /// </summary>
         private void SendMessage()
         {
-            this._settingsRabbitMQViewModel.PostMessageInExchange(this.NewMessageText);
+            this._settingsRabbitMQViewModel.PostMessageInExchange(this.NewUserIAMessage);
             ShowMessage();
         }
         /// <summary>
@@ -211,12 +197,12 @@ namespace MauiApp_rabbit_mq_cliente_1.ViewModels
             var newMessage = new Message
             {
                 Id = now.Ticks.ToString(),
-                Text = NewMessageText,
+                Text = NewUserIAMessage,
                 IsCurrentUser = true,
             };
 
             Messages.Add(newMessage);
-            NewMessageText = string.Empty;
+            NewUserIAMessage = string.Empty;
         }
         /// <summary>
         /// Este método se encarga de enviar el mensaje que
