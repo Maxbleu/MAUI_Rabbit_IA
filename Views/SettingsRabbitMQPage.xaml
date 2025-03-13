@@ -11,6 +11,7 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
         <Grid Grid.Row="0">
@@ -34,21 +35,40 @@
                         HorizontalOptions="End"/>
 
         </Grid>
+        <Grid Grid.Row="1" Margin="0,20,0,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
 
-        <StackLayout Grid.Row="1" Margin="0,20,0,0">
-            <Label Text="HostName" FontSize="16"/>
-            <Entry Grid.Row="1" Text="{Binding HostName}"
-                   Placeholder="Hostname" 
-                   FontSize="16"/>
-        </StackLayout>
+            <Label Text="Url" FontSize="16" Grid.Row="0" Grid.ColumnSpan="3"/>
 
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="5*" />
+                    <ColumnDefinition Width="1*" />
+                </Grid.ColumnDefinitions>
+
+                <Entry Grid.Column="0" Text="{Binding Protocol}"
+                       Placeholder="http" 
+                       FontSize="16"/>
+
+                <Entry Grid.Column="1" Text="{Binding HostName}"
+                       Placeholder="Hostname" 
+                       FontSize="16"/>
+
+                <Entry Grid.Column="2" Text="{Binding Port}"
+                       Placeholder="Port" 
+                       FontSize="16"/>
+            </Grid>
+        </Grid>
         <StackLayout Grid.Row="2" Margin="0,20,0,0">
             <Label Text="Exchange name" FontSize="16"/>
             <Entry Grid.Row="1" Text="{Binding ExchangeName}"
                    Placeholder="Exchange name" 
                    FontSize="16"/>
         </StackLayout>
-
         <Button Grid.Row="3"
                 Text="Guardar"
                 Margin="0,20,0,0"

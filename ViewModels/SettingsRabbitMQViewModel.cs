@@ -1,8 +1,12 @@
 ﻿using System.ComponentModel;
+using System.Net.Http.Headers;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Windows.Input;
+using MauiApp_rabbit_mq_cliente_1.Models;
 using MauiApp_rabbit_mq_cliente_1.Utils;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
 
@@ -23,13 +27,16 @@ namespace MauiApp_rabbit_mq_cliente_1.ViewModels
         private bool _oldIsEnabledButton = true;
         private bool _isEnabledButton = true;
         private string _oldHostName;
+        private string _protocol = "http";
         private string _hostName = "192.168.1.149";
+        private string _port = "15672";
         private string _exchangeName = "grupoChat";
         private string _oldExchangeName;
 
         private bool _isRabbitMQServiceRunning = false;
         private bool _hasBeenActivatedSaveConfigurationButton = false;
         private string _newMessage;
+        private int _nConnections = 0;
 
         //  BINDING ELEMENTS
         public Brush Color
@@ -56,6 +63,18 @@ namespace MauiApp_rabbit_mq_cliente_1.ViewModels
                 }
             }
         }
+        public string Protocol
+        {
+            get => _protocol;
+            set
+            {
+                if (_protocol != value)
+                {
+                    _protocol = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
         public string HostName
         {
             get => _hostName;
@@ -64,6 +83,19 @@ namespace MauiApp_rabbit_mq_cliente_1.ViewModels
                 if (_hostName != value)
                 {
                     _hostName = value;
+                    OnPropertyChanged();
+                    this.IsEnabledButton = true;
+                }
+            }
+        }
+        public string Port
+        {
+            get => _port;
+            set
+            {
+                if (_port != value)
+                {
+                    _port = value;
                     OnPropertyChanged();
                     this.IsEnabledButton = true;
                 }
@@ -127,6 +159,35 @@ namespace MauiApp_rabbit_mq_cliente_1.ViewModels
                     _newMessage = value;
                     OnPropertyChanged();
                 }
+            }
+        }
+        public int NConnections
+        {
+            get
+            {
+                HttpClient client = null;
+                try
+                {
+                    client = new HttpClient { Timeout = TimeSpan.FromSeconds(4) };
+
+                    string url = ThingsUtils.GetUrl(this.Protocol, this.HostName, this.Port, "/api/connections");
+
+                    string authValue = Convert.ToBase64String(Encoding.ASCII.GetBytes($"guest:guest"));
+                    client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Basic", authValue);
+
+                    var response = Task.Run(async () => await client.GetAsync(url)).GetAwaiter().GetResult();
+                    string responseBody = Task.Run(async () => await response.Content.ReadAsStringAsync()).GetAwaiter().GetResult();
+                    JArray array = JArray.Parse(responseBody);
+
+                    this._nConnections = array.Count;
+
+                }
+                catch(Exception ex)
+                {
+                    this._nConnections = 0;
+                }
+
+                return this._nConnections;
             }
         }
 
@@ -224,6 +285,7 @@ namespace MauiApp_rabbit_mq_cliente_1.ViewModels
             var body = e.Body.ToArray();
             this.NewMessage = Encoding.UTF8.GetString(body);
             this._channel.BasicAck(deliveryTag: e.DeliveryTag, multiple: false);
+            this._nConnections = this.NConnections;
         }
 
         /// <summary>
