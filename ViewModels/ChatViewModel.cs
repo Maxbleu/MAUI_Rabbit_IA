@@ -119,6 +119,15 @@ namespace MauiApp_rabbit_mq_cliente_1.ViewModels
                     this._settingsModeloViewModel.LoadOldConfiguration();
                 }
             }
+
+            if(e.PropertyName == "ModeloSeleccionado")
+            {
+                if (this.IsActiveConversation)
+                {
+                    ThingsUtils.SendSnakbarMessage("Desabilita la opción de continuar la conversión del modelo en la pantalla del chat arriba a la derecha");
+                    this._settingsModeloViewModel.LoadOldConfiguration();
+                }
+            }
         }
         /// <summary>
         /// Este método se encarga de responder ante la modificación de valores
